@@ -1,5 +1,145 @@
-.landing{
-    background-image: url('./image/josh-rocklage-HAAsKeZbHAc-unsplash.jpg');
-    height: 100%;
+body{
+    background-color:#2f303A ;
+    color:white;
+}
+
+.logo{
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.25rem;
+    align-items: center;
+}
+
+.logo-name{
+    margin-left: 1rem;
     
 }
+
+.landing{
+    background-image: url('/image/josh-rocklage-HAAsKeZbHAc-unsplash.jpg');
+    background-size: contain;
+    
+    
+}
+
+/* .landing p{
+    text-align: center;
+} */
+.landing-text{
+    padding-top: 35%;
+    text-align: center;
+}
+.landing button{
+    color: white;
+    background-color:rgb(23, 98,167);
+    margin-top: 2rem;
+    margin-bottom: 30%;
+    
+}
+
+.btn {
+    align-self: center;
+    
+}
+
+.landing{
+    text-align: center;
+}
+
+.about{
+    text-align: center;
+    margin-top: 30%;
+    padding-bottom: 20%;
+}
+
+.about button{
+    color: white;
+    background-color:rgb(23, 98,167);
+
+}
+
+.about .about-page-circle-1{
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    background-color: rgb(189, 53, 153, .1 );
+    /* bottom: 5vw; */
+    left: 5vw; 
+    z-index: -1;
+
+}
+
+.about-page-circle-2{
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    background-color: rgb(23, 98, 167, .1);
+    top: 150vh;
+    left: 60vw;
+    z-index: -1;
+
+}
+
+.about-page-circle-3{
+    position: absolute;
+    overflow: hidden;
+    width: 45vw;
+    height: 45vw;
+    /* border-radius: 50%; */
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+
+}
+
+.about-page-circle-3::before {
+    content:'';
+    transform: translate(40%, 40%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgb(23, 98, 167, .1);
+ }
+
+ /* signup section */
+
+ .signup-main-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.signup-text {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.accent-text {
+    color: #BC3A80;
+      
+}
+
+ .signup-form{
+    background-color: #202027;
+    width: 50vw;
+    max-width: 50%;
+    padding: 2rem 4rem;
+    border-radius: 20px;      
+    
+ }
+
+.input-group{
+    display: flex;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    
+}
+
+/* label{
+    font: white;
+} */
