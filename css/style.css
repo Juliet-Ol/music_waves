@@ -67,12 +67,17 @@ button{
     margin-top: 2rem;
     margin-bottom: 30%;
     
+    
 }
 
 .btn {
     align-self: center;
+    padding: 10px 30px;
+    cursor: pointer;
     
 }
+
+
 
 .landing{
     text-align: center;
@@ -87,6 +92,7 @@ button{
 .about button{
     color: white;
     background-color:rgb(23, 98,167);
+    cursor: pointer;
 
 }
 
