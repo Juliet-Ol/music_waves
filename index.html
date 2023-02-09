@@ -137,9 +137,16 @@
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
+
+            set(ref(database, 'users/' + user.uid),{
+                username: username,
+                email: email
+            }) 
+            
             alert('Account has been created');
             // ...
         })
+
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
