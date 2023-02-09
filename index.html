@@ -52,19 +52,19 @@
     <form class="signup-form">
         <h1 class="signup-heading">Sign Up</h1>
         <div class="input-group">
-            <label>social media:</label>
-            <input type="text">                    
+            <label>username:</label>
+            <input type="text" id="username">                    
         </div>
         <div class="input-group">
             <label>Email:</label>
-            <input type="email">                    
+            <input type="text" id="email">                    
         </div>
         <div class="input-group">
             <label>Password:</label>
-            <input type="password">              
+            <input type="password" id="password">              
         </div>
         <div class="input-group">
-            <button type="submit" class="btn" id="signup-btn">Join Now</button>
+            <button type="submit" class="btn" id="signup-btn" value="Signup">Join Now</button>
             <h3 align="center">Have an account login here.</h3>
             
         </div>
@@ -126,6 +126,21 @@
     const app = initializeApp(firebaseConfig);
     const database =getDatabase(app);
     const auth = getAuth();
+
+    signup-btn.addEventListner('click',(e) => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+        });
+
+    })
     
   </script>
 </html>
