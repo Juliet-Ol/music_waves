@@ -238,3 +238,189 @@ header .master_play span {
 header .master_play #currentStart{
     margin: 0px 0px 0px 20px;
 }
+header .master_play .bar{
+    position: relative;
+    width: 43%;
+    height: 2px;
+    background: rgb(23, 98, 167, .1);
+    margin:0px 15px 0px 10px ;
+}
+header .master_play .bar{
+    position: relative;
+    width: 43%;
+    height: 2px;
+    background: rgb(23, 98, 167, .1);
+    margin:0px 15px 0px 10px ;
+}
+header .master_play .bar .bar2{
+    position: absolute;
+    background: grey;
+    width: 0%;
+    height: 100%;
+    top: 0;    
+}
+header .master_play .bar .dot{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgb(23, 98,167); 
+    border-radius: 50%;
+    left: 0%;
+    top: -1px;
+    transition: 1s linear;
+}
+header .master_play .bar .dot::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid  rgb(23, 98,167); 
+    border-radius: 50%;
+    left: -6px;
+    top: -6px;
+    transition: inset 0px 0px 3px rgb(23, 98,167); 
+}
+header .master_play .bar input{    
+    position: absolute;
+    width: 100%;
+    top: -6px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999;
+    transition: 3s linear;
+    opacity: 0 ;   
+}
+header .master_play .vol{    
+    position: relative; 
+    width: 100px;
+    height: 2px;  
+    margin-left: 50px; 
+    background: grey;
+}
+header .master_play .vol .bi{    
+    position: absolute; 
+    color: #fff;
+    font-size: 25px;
+    top: -17px;
+    left: -30px;   
+}
+header .master_play .vol input{    
+    position: absolute;
+    width: 100%;
+    top: -10px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999;
+    transition: 3s linear;
+    opacity: 0 ;   
+}
+header .master_play .vol .vol_bar{
+    position: absolute;
+    background: rgb(23, 98,167);
+    width: 0%;
+    height: 100%;
+    top: 0;    
+}
+header .master_play .vol .dot{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgb(23, 98,167); 
+    border-radius: 50%;
+    left: 0%;
+    top: -1px;
+    transition: 1s linear;
+}
+header .master_play .vol .dot::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid  rgb(23, 98,167); 
+    border-radius: 50%;
+    left: -6px;
+    top: -6px;
+    transition: inset 0px 0px 3px rgb(23, 98,167); 
+}
+header .song_part{
+    z-index: 2;
+}
+header .song_part nav{
+    width: 90%;
+    height: 10%;
+    margin: auto;
+    /* border: 1px solid #fff; */
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+header .song_part nav ul{
+    display: flex;
+}
+header .song_part nav ul li{
+    position: relative;
+    list-style-type: none;
+    font-size: 13px;
+    color: #4c5262;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: 3s linear;
+}
+header .song_part nav ul li:hover{
+    color: #fff;
+}
+header .song_part nav ul li:nth-child(1){
+    color: #fff;
+}
+header .song_part nav ul li span{
+    position: absolute;
+    width: 100%;
+    height: 2.5px;
+    background: rgb(23, 98,167);
+    bottom: -5px;
+    left: 0;
+    border-radius: 20px;
+}
+header .song_part nav .search{
+    position: relative;
+    width: 40%;
+    padding: 1px 10px;
+    border-radius: 20px;
+    color: grey;   
+}
+header .song_part nav .search::before{
+    content: '';
+    position: absolute;   
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgb(23, 98, 167, .1) ;
+    backdrop-filter: blur(5px);
+    z-index:  -1; 
+}
+header .song_part nav .search .bi{
+    font-size: 12px;
+    padding: 3px 0px 0px 10px;
+}
+header .song_part nav .search input{
+    background:none ;
+    outline: none;
+    border: none;
+    padding: 0px 10px;
+    color: #fff;
+    font-size: 12px;
+}
+header .song_part nav .user{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+header .song_part nav .user img{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px #131312;
+}

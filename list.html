@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/list.css">
+    <link rel="stylesheet" href="css/list.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>Music to the soul</title>
 </head>
 <body>
-   
     <header>
         <div class="menu_part">
             <h1>Playlist</h1>
@@ -68,11 +67,27 @@
                         <!-- <i class="bi playlistPlay bi-play-circle-fill" id="6"></i> -->
                     </h5>
                     <i class="bi playlistPlay bi-play-circle-fill" id="6"></i>
-            </h5>
+           
                 </li>
             </div>
         </div>
-        <div class="song_part"></div>
+        <div class="song_part">
+            <nav>
+                <ul>
+                    <li> Discover <span></span></li>
+                    <li>My Library</li>
+                    <li>Rad</li>
+                </ul>
+                <div class="search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search for music...">
+                </div>
+                <div class="user">
+                    <img src="/image/matt-botsford-OKLqGsCT8qs-unsplash.jpg" alt="user" title="ju">
+                </div>
+            </nav>
+            
+        </div>
         <div class="master_play">
             <div class="wave">
                 <div class="wave1"></div>
@@ -95,6 +110,12 @@
                 <div class="dot"></div>
             </div>
             <span id="currentEnd">0:00</span>
+            <div class="vol">
+                <i class="bi bi-volume-down-fill"></i>
+                <input type="range" id="vol" min="0" value="30" max="100">
+                <div class="vol_bar"></div>
+                <div class="dot" id="vol_dot"></div>
+            </div>
                 
         </div>
     </header>
