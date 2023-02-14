@@ -10,6 +10,7 @@ body{
     font-size: 1.25rem;
     align-items: center;
     display: flex;
+    margin: 1rem;
 }
 
 .logo-name{
@@ -152,9 +153,9 @@ button{
 }
 
 .signup-text {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    margin: 0;
+    margin: 2rem;
 }
 
 .accent-text {
@@ -164,8 +165,8 @@ button{
 
  .signup-form{
     background-color: #202027;
-    width: 50vw;
-    max-width: 50%;
+    width: 35vw;
+    max-width: 35%;
     
     padding: 2rem 4rem;
     border-radius: 20px;      
@@ -178,7 +179,7 @@ button{
 
 .input-group{
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: rem;
     flex-direction: column;
     
 }
@@ -206,8 +207,8 @@ button{
 
  .login-form{
     background-color: #202027;
-    width: 50vw;
-    max-width: 50%;
+    width: 35vw;
+    max-width: 35%;
     
     padding: 2rem 4rem;
     border-radius: 20px;      

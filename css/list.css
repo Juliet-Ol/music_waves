@@ -1,0 +1,240 @@
+/* google fonts poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #2f303A;
+    font-family: Poppins, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    width: 85%;
+    height: 95%;
+    border: 1px solid #fff;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+}
+header .menu_part, .song_part {
+    position: relative;
+    width: 25%;
+    height: 90%;
+    /* border: 1px solid #fff; */
+    background-color: #202030;
+    box-shadow: 5px 0px 2px rgb(23, 98, 167, .1);
+    color: #fff;
+}
+header .song_part {
+    width: 75%;
+    background-color: #202027;
+}
+
+header .master_play{
+    width: 100%;
+    height: 10%;
+    background-color: #202030;
+    box-shadow: 0% 3px 8px #090f1f;
+}
+
+header .menu_part h1{
+    font-size: 20px;
+    margin: 15px 0px 0px 20px;
+    font-weight: bolder;
+}
+
+header .menu_part .playlist {
+    margin: 40px 0px 0px 20px;
+}
+
+header .menu_part h4{
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    color: grey;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: .3s linear;
+}
+header .menu_part h4:hover{
+    color: #fff;
+}
+header .menu_part h4 span{
+    position: relative;
+    margin-right: 35px;
+}
+header .menu_part h4 span::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid #4c5262;
+    border-radius: 50%;
+    top: -4px;
+    transition: .3s linear;
+}
+header .menu_part .playlist h4:hover span::before{    
+    border: 2px solid #4c5262;
+}
+
+header .menu_part .playlist h4 .bi{    
+    display: none;
+}
+header .menu_part .playlist .active{    
+    color: rgb(23, 98,167);
+}
+header .menu_part .playlist .active span{    
+    display: none;
+}
+header .menu_part .playlist .active .bi{    
+    display: flex;
+    margin-top: 20px;
+}
+header .menu_part .menu_song{
+    width: 100%;
+    height: 300px;
+    /* border: 1px solid #fff; */
+    margin-top: 40px;
+}
+
+header .menu_part .menu_song li{
+    position: relative;
+    list-style: none;
+    padding: 5px 0px 5px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+header .menu_part .menu_song li:hover{
+   background: grey;
+}
+header .menu_part .menu_song li span{
+    font-size: 12px;
+    font-weight: bolder;
+    color: #4c5262;
+}
+header .menu_part .menu_song li img{
+    width: 32px;
+    height: 32px;
+    margin-left: 25px;
+}
+header .menu_part .menu_song li h5{
+    font-size: 11px;
+    margin-left: 15px;
+}
+header .menu_part .menu_song li h5 .subtitle{
+    font-size: 9px;
+    color: #4c5262;
+}
+header .menu_part .menu_song .bi{
+    position: absolute;
+    right: 15px;
+    top: 6px;
+    font-size: 16px;
+}
+header .master_play{
+    display: flex;
+    align-items: center;
+    padding: 0 20%;
+}
+
+
+header .master_play .wave{
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid #fff; */
+    padding-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+header .master_play .wave .wave1{
+    width: 3px;
+    height: 10px;    
+    margin-right: 3px;
+    border-radius: 10px 10px 0px 0px;
+    background: #090f1f;
+    animation: unset;
+}
+header .master_play .wave .wave1:nth-child(2){
+    height: 13px;  
+    /* animation-delay: .4s;    */
+}
+header .master_play .wave .wave1:nth-child(3){
+    height: 8px; 
+    /* animation-delay: .8s;      */
+}
+/* javascript class wave */
+header .master_play .active2 .wave1{    
+    animation: wave .5s linear infinite;
+}
+header .master_play .active2 .wave1:nth-child(2){
+     
+    animation-delay: .4s;   
+}
+header .master_play .active2 .wave1:nth-child(3){
+    animation-delay: .8s; 
+}
+@keyframes wave {
+    0%{
+        height: 10px;
+    }
+    50%{
+        height: 15px;
+    }
+    100%{
+        height: 10px;
+    }
+}
+
+header .master_play img{
+    width: 35px;
+    height: 35px;
+}
+header .master_play h5{
+    width: 130px;
+    font-size: 14px;
+    margin-left: 15px;
+    color: #fff;
+    line-height: 15px;
+}
+header .master_play h5 .subtitle{    
+    font-size: 11px;
+    color: #4c5262;    
+}
+header .master_play .icon{    
+    font-size: 20px;
+    color: #fff;    
+    margin: 0px 20px 0px 40px;
+}
+header .master_play .icon .bi{    
+    cursor: pointer;
+    outline: none;
+}
+header .master_play .icon .bi:nth-child(2){    
+    border: rgb(23, 98, 167, .1);
+    border-radius: 50%;
+    padding: 1px 3px 0px 6px;
+    margin: 0px 5px;
+    transition: .3s linear;
+}
+header .master_play span {
+    color: #fff;
+    width: 32px;
+    font-size: 11px;
+    font-weight: 400;
+}
+header .master_play #currentStart{
+    margin: 0px 0px 0px 20px;
+}

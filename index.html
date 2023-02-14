@@ -10,25 +10,26 @@
 
 
 <body>
-<!-- landing page -->
-<header class="main-header">
-    <a href="/"class=logo>
-        <!-- <img src="image/mathew-schwartz-E1n-5Emx38M-unsplash.jpg" alt=""> -->
-        <div class="logo name"> Music Waves</div>
-    </a>
-    <nav class="home-nav">
-        <li><a href="about">About us</a></li>
-        <li><a href="#">Signup</a></li>
-        <li><a href="#">Login</a></li>
-    </nav>
-</header>
-<div class="landing" >
-    <h1 class="landing-text">Music that moves you</h1>
-    <button type="submit" class="btn">
-        join now
-    </button>
+    <header class="main-header">
+        <a href="/"class=logo>
+            <!-- <img src="image/mathew-schwartz-E1n-5Emx38M-unsplash.jpg" alt=""> -->
+            <div class="logo name"> Music Waves</div>
+        </a>
+        <nav class="home-nav">
+            <li><a href="about">About us</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="list.html"> Listen</a></li>
+        </nav>
+    </header>
+    <div class="landing" >
+        <h1 class="landing-text">Music that moves you</h1>
+        <button type="submit" class="btn">
+            <a href="signup.html" style="text-decoration-line: none; color: white;">join now </a>
+        </button>
+    
+    </div>
 
-</div>
 
 <!-- about us -->
 <section class="about">
@@ -40,176 +41,9 @@
     <div class="about-page-circle-1"></div>
     <div class="about-page-circle-2"></div>
     <div class="about-page-circle-3"></div>
-
-
-</section>
-
-<!-- signup-form -->
-<section class="signup-form-page" id="signup-form">
-    <h1 class="signup-text">Signup and enjoy
-        <span class="accent-text">more....</span> 
-    </h1>
-    <div class="signup-form">
-        <h1 class="signup-heading">Sign Up</h1>
-        <div class="input-group">
-            <label>username:</label>
-            <input type="text" id="username">                    
-        </div>
-        <div class="input-group">
-            <label>Email:</label>
-            <input type="text" id="email">                    
-        </div>
-        <div class="input-group">
-            <label>Password:</label>
-            <input type="password" id="password">              
-        </div>
-        <div class="input-group">
-            <button type="submit" class="btn" id="signup" value="Signup">Join Now</button>
-            <h3 align="center">Have an account login here.</h3>
-            
-        </div>
-    </div>   
-</section>  
-<!-- login-form -->
-<section class="login-form-page">
-    
-    <div class="login-form">
-        <h1 class="login-heading">Login</h1>
-        <!-- <div class="input-group">
-            <label>username </label>
-            <input type="text" id="username">                    
-        </div> -->
-        <div class="input-group">
-            <label>Email:</label>
-            <input type="text" id="email2">                    
-        </div>
-        <div class="input-group">
-            <label>Password:</label>
-            <input type="password" id="password2">              
-        </div>
-        <div class="input-group">
-            <button type="submit" class="btn" id="login">Login</button>
-            <h3 align="center">You don't have an account register here.</h3>
-        </div>        
-    </div>   
-    <h1 class="login-text">Welcome
-        <span class="accent-text">back....</span> 
-    </h1>
-</section> 
-
-
-
     
     <script src="/js/app.js"></script>
     
 </body>
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    import { getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDGZfZjNapHptrCaF1Rg-NgV6hoXTYMTFM",
-      authDomain: "music-waves-26f41.firebaseapp.com",
-      databaseURL: "https://music-waves-26f41-default-rtdb.firebaseio.com",
-      projectId: "music-waves-26f41",
-      storageBucket: "music-waves-26f41.appspot.com",
-      messagingSenderId: "227518591905",
-      appId: "1:227518591905:web:5d18ee240137ddc1a0d1e0"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database =getDatabase(app);
-    const auth = getAuth();
 
-    signup.addEventListener('click',(e) => {
-
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var username = document.getElementById('username').value;
-
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-
-            set(ref(database, 'users/' + user.uid),{
-                username: username,
-                email: email
-            }) 
-
-            alert('Account has been created');
-            // ...
-        })
-
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage);
-            // ..
-        });
-
-    })
-
-    login.addEventListener('click',(e) => {
-
-        var email = document.getElementById('email2').value;
-        var password = document.getElementById('password2').value;
-        // var username = document.getElementById('username').value;
-
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-
-            const dt = new Date();
-            update(ref(database, 'users/' + user.uid),{
-                last_login: dt,
-               
-            }) 
-
-            alert('You are logged in! ');
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage);
-        });
-
-    })
-
-    const user = auth.currentUser;
-    onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        // ...
-    } else {
-        // User is signed out
-        // ...
-    }
-    });
-
-    logout.addEventListener('click',(e) => {
-        const auth = getAuth();
-        signOut(auth).then(() => {
-        // Sign-out successful.
-        alert('You are now logged out!');
-        }).catch((error) => {
-        // An error happened.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage);
-        });
-
-    });
-    
-  </script>
 </html>
