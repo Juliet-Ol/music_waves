@@ -1,7 +1,7 @@
-const music = new Audio('fallingdown.mp3');
+const music = new Audio ('fallingdown.mp3');
 // music.play();
 
-// music/Bruno_Mars_Super_Bowl_2014_Just_The_Way_You_Ar.mp3
+
 
 // create Array
 
@@ -31,9 +31,17 @@ let songs = [
         songName:`SHAKIRA_BZRP_MUSIC_SESSIONS_53_FRENCH_VERSION_
          <div class="subtitle"> Shakira </div>`,
         poster:"image/matt-botsford-OKLqGsCT8qs-unsplash.jpg"
-    }
+    },
+    {
 
+        id:'5',
+        songName:`Shape_of_You_Ed_Sheeran_traduction_française_
+        <div class="subtitle"> Ed_Sheeran </div>`,
+        poster:"image/fallingdown.jpg"
+    },
 ]
+
+
 
 Array.from(document.getElementsByClassName('menu_song')).forEach((element, i)=>{
     element.getElementsByTagName('img')[0].src = songs[i].poster;
@@ -68,6 +76,16 @@ const makeAllPlays = () =>{
 
 }
 
+const makeAllBackgrounds = () =>{    
+    Array.from(document.getElementsByClassName('songItem')).forEach((element)=>{    
+        element.style.background = "rgb(105, 105, 170. 0)";
+        
+
+    })
+
+}
+
+
 let index = 0;
 let poster_master_play = document.getElementById('poster_master_play');
 let title = document.getElementById('title');
@@ -77,9 +95,9 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element)=>{
         makeAllPlays();
         e.target.classList.remove('bi-play-circle-fill');
         e.target.classList.add('bi-pause-circle-fill');
-        music.scr = `${index}.mp3`;
-        poster_master_play.img = `image/${index}.jpg`;
-        music.play()
+        music.src = `/music/${index}.mp3`;
+        poster_master_play.src = `image/${index}.jpg`;
+        music.play();
         let song_part = songs.filter((ele)=>{
             return ele.id == index;
         })
@@ -96,5 +114,134 @@ Array.from(document.getElementsByClassName('playlistPlay')).forEach((element)=>{
             wave.classList.remove('active2');
 
         })
+        makeAllBackgrounds();
+        Array.from(document.getElementsByClassName('songItem'))[$(index-1)].style.background = "rgb(105, 105, 170. 0)";
     })
+})
+
+let currentStart = document.getElementById('currentStart')
+let currentEnd = document.getElementById('currentEnd')
+let seek = document.getElementById('seek')
+let bar2 = document.getElementById('bar2')
+let dot = document.getElementsByClassName('dot')[0];
+
+
+
+music.addEventListener('timeupdate',()=>{
+    let music_curr = music.currentTime;
+    let music_dur =  music.duration;
+
+    let min = Math.floor(music_dur/60)
+    let sec = Math.floor(music_dur%60)
+    if (sec<10) {
+        sec = `0${sec}`
+    }
+
+    currentEnd.innerText = `${min}:${sec}`
+    let min1 = Math.floor(music_curr/60)
+    let sec1 = Math.floor(music_curr%60)
+    if (sec<10) {
+        sec1 = `0${sec1}`
+    }
+
+    currentStart.innerText = `${min1}:${sec1}`
+
+    let progressbar = parseInt((music.currentTime/music.duration)*100)
+    seek.value = progressbar;
+    let seekbar = seek.value;
+    bar2.style.width = `${seekbar}%`;
+    dot.style.left = `${seekbar}%`;
+})
+
+seek.addEventListener('change', ()=>{
+    music.currentTime = seek.value * music.duration/100;
+})
+
+music.addEventListener('ended', ()=>{
+    masterPlay.classList.add('bi-play-fill');
+    masterPlay.classList.remove('bi-pause-fill');
+    wave.classList.remove('active2');
+})
+
+let vol_icon = document.getElementById('vol_icon')
+let vol = document.getElementById('vol')
+let vol_dot = document.getElementById('vol_dot')
+let vol_bar = document.getElementsByClassName('vol_bar')[0];
+
+vol.addEventListener('change', ()=>{
+    if (vol.value == 0) {
+        vol_icon.classList.remove('bi-volume-down-fill')
+        vol_icon.classList.add('bi-volume-mute-fill')
+        vol_icon.classList.remove('bi-volume-up-fill')
+    }
+    if (vol.value > 0) {
+        vol_icon.classList.add('bi-volume-down-fill')
+        vol_icon.classList.remove('bi-volume-mute-fill')
+        vol_icon.classList.remove('bi-volume-up-fill')
+    }
+    if (vol.value > 50) {
+        vol_icon.classList.remove('bi-volume-down-fill')
+        vol_icon.classList.remove('bi-volume-mute-fill')
+        vol_icon.classList.add('bi-volume-up-fill')
+    }
+    let vol_a = vol.value;
+    vol_bar.style.width = `${vol_a}%`;
+    vol_dot.style.left = `${vol_a}%`;
+    music.volume = vol_a/100
+
+})
+
+let back = document.getElementById('back')
+let next = document.getElementById('next')
+
+back.addEventListener('click', ()=>{
+    index -= 1;
+    if (index < 1) {
+        index = Array.from(document.getElementsByClassName('songItem')).length;
+
+    }
+    music.src = `/music/${index}.mp3`;
+    poster_master_play.src = `image/${index}.jpg`;
+    music.play();
+    let song_part = songs.filter((ele)=>{
+        return ele.id == index;
+    })
+    song_part.forEach(ele =>{
+        let {songName} = ele;
+        title.innerHTML = songName;
+    })
+    makeAllPlays();
+
+    document.getElementById(`${index}`).classList.remove('bi-play-fill');
+    document.getElementById(`${index}`).classList.add('bi-pause-fill');
+
+    makeAllBackgrounds();
+    Array.from(document.getElementsByClassName('songItem'))[$(index-1)].style.background = "rgb(105, 105, 170. 0)";
+   
+})
+next.addEventListener('click', ()=>{
+    index -= 0;
+    index += 1;
+    if (index > Array.from(document.getElementsByClassName('songItem')).length) {
+        index = 1;
+
+    }
+    music.src = `/music/${index}.mp3`;
+    poster_master_play.src = `image/${index}.jpg`;
+    music.play();
+    let song_part = songs.filter((ele)=>{
+        return ele.id == index;
+    })
+    song_part.forEach(ele =>{
+        let {songName} = ele;
+        title.innerHTML = songName;
+    })
+    makeAllPlays();
+
+    document.getElementById(`${index}`).classList.remove('bi-play-fill');
+    document.getElementById(`${index}`).classList.add('bi-pause-fill');
+
+    makeAllBackgrounds();
+    Array.from(document.getElementsByClassName('songItem'))[$(index-1)].style.background = "rgb(105, 105, 170. 0)";
+   
 })
